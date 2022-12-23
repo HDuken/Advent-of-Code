@@ -2,7 +2,7 @@
 # https://adventofcode.com/2022/
 
 clear
-g++ -Wall   day9-p2.cpp -o out
-./out <     day9.txt
+g++ -Wall   day18-p2.cpp -o out
+./out <     day18.txt
 # ./out <     test.txt
 rm -f out
