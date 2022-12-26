@@ -24,6 +24,10 @@ Other solutions, cool visualizations can also be found at [reddit/adventofcode](
 - [Day 14](#day-14)
 - [Day 15](#day-15)
 - [Day 18](#day-18)
+- [Day 20](#day-20)
+- [Day 21](#day-21)
+- [Day 22](#day-22)
+- [Day 23](#day-23)
 
 -------
 
@@ -383,3 +387,135 @@ Part 2:
   ```
 
 - Then, just as in part 1, for each `LAVA` cell, count how many of its 6 neighbors are `STEAM` cells
+
+-------
+
+## Day 20
+
+- This is a problem for linked list.
+- The running time also shows using `std::shared_ptr<Node>` is slower than using raw pointer `Node*`, but of course, it's safer (auto deletion).
+- Define a circular bidirectional linked list as follows:
+  
+  ```cpp
+  struct Node
+  {
+      int val_;
+      Node *prev_, *next_;
+  
+      Node(const int &val)
+      : val_(val), prev_(nullptr), next_(nullptr) {};
+  };
+  using LinkedList = vector<Node*>;
+  ```
+
+- The method `void move(LinkedList &A, const int &id)` is a bit complicate, but in the end, performs as expected.
+- Other than that, everything was clean and straight-forward
+
+-------
+
+## Day 21
+
+- Not much to say, just a problem with binary tree.
+- Each monkey is a node in the tree
+- Define node and tree as follows:
+
+```cpp
+enum OP { ADD, SUB, MUL, DIV, EQU };
+
+struct Node
+{
+    string name_;
+    LL value_;
+    OP op_;
+    Node *child1_ = nullptr, *child2_ = nullptr;
+};
+
+class Tree
+{
+private:
+    vector<Node*> nodes_;
+    static void propagate_up(Node* node);
+    static void propagate_down(Node* node);
+public:
+    Tree();
+    ~Tree();
+    void set_node();
+    LL get_val();
+};
+```
+
+-------
+
+## Day 22
+
+- Part 2, folding the cube ... is ... insanely challenging. Many go with hard coding
+- For part 1, I simply wrote 2 methods:
+  - `get_next`: finds next possible position that is either ROCK or FREE space
+  - `move`: rotates and moves forward step by step
+
+```cpp
+void get_next(const int &x, const int &y, int &x_next, int &y_next);
+
+auto move = [&](char dir, int step)
+{
+    rotate(dir);
+    int x_next = 0, y_next = 0;
+    for (int s = 0; s < step; s++) {
+        get_next(x, y, x_next, y_next);
+        if (grid[y_next][x_next] == ROCK)
+            break;
+        x = x_next;
+        y = y_next;
+    }
+};
+```
+
+-------
+
+## Day 23
+
+- Basic data structure idea for direction and elves:
+
+```cpp
+enum Direction : int { NORTH = 0, SOUTH = 1, WEST = 2, EAST = 3 };
+
+struct Coord
+{
+    int x_, y_;
+};
+Coord operator+(const Coord &p1, const Coord &p2);
+Coord operator-(const Coord &p1, const Coord &p2);
+bool operator==(const Coord &p1, const Coord &p2);
+
+struct Elf
+{
+    Coord position_, next_position_;
+    Direction direction_;
+};
+
+bool grid_map[3 * RANGE][3 * RANGE];
+```
+
+- Insight about elves plan to go into same position:\
+  For each stacking position, there will be only 2 elves, and they are in the opposite sides of the stacking position. In other words, the elves will only plan to go to the same position in pair.\
+  There are only 2 possible scenarios as follows:
+
+```txt
+# Case 1: 1 elf going right, 1 elf going left
+...       ...
+#.#   --> .#.
+...       ...
+
+# Case 2: 1 elf going down, 1 elf going up
+.#.       ...
+...   --> .#.
+.#.       ...
+```
+
+- We can still simply compare all pair of elves, if they have the same `next_position`, set it back to their `current_position`. But this will take $\mathcal{O}(N^2)$ with $N$ as the number of elves\
+  Following this strategy, part 1 took around `130ms`, part 2 took `~18s` for nearly 1000 steps
+- Alternatively, we can just let each of them move if it's possible.
+  - If an elf want to move to an occupied position, it will not only stay still, but also push the elf in the stacking position back as well.
+  - To search for the previous elf, we go back from the ID of the current elf to 0.
+  - Due to the way we read the input line by line, we just have to check around `100-200` previous elves
+  - With this strategy, we reduce run time to `10ms` for part 1, and `400ms` for part 2.
