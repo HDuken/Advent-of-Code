@@ -28,6 +28,8 @@ Other solutions, cool visualizations can also be found at [reddit/adventofcode](
 - [Day 21](#day-21)
 - [Day 22](#day-22)
 - [Day 23](#day-23)
+- [Day 24](#day-24)
+- [Day 25](#day-25)
 
 -------
 
@@ -519,3 +521,23 @@ bool grid_map[3 * RANGE][3 * RANGE];
   - To search for the previous elf, we go back from the ID of the current elf to 0.
   - Due to the way we read the input line by line, we just have to check around `100-200` previous elves
   - With this strategy, we reduce run time to `10ms` for part 1, and `400ms` for part 2.
+
+-------
+
+## Day 24
+
+- High level idea
+  - Simulate the movement of blizzards
+  - For each time step, keep a grid map of reachable positions
+  - At the beginning, the only reachable position is the starting point
+  - At any time step, reachable positions are those in neighbor of previous reachable positions.
+  - It could include the previous reachable positions themselves, if possible
+- A bit tedious writing all the helper functions, but overall, it is not too complicated.
+- Part 2 is simply extension from 1 trip to 3 trips.  
+
+-------
+
+## Day 25
+
+- I don't really get it :(
+- Just implement a solution from [r/adventofcode](https://www.reddit.com/r/adventofcode/comments/zur1an/2022_day_25_solutions/)
