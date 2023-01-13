@@ -1,9 +1,20 @@
 <!-- omit in toc -->
 # Advent-of-Code
 
+<div align="center">
+    <img src="https://img.shields.io/badge/Day%20📅-25-blue">
+    <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
+    <img src="https://img.shields.io/badge/Days%20Completed-20/25-red">
+</div>
+
+![d14p1](/imgs/aoc2022.png)
+
+-------
+
 My solutions for [Advent of Code 2022](https://adventofcode.com/2022).
 
-Other solutions, cool visualizations can also be found at [reddit/adventofcode](https://www.reddit.com/r/adventofcode/)
+- Other solutions, cool visualizations can also be found at [reddit/adventofcode](https://www.reddit.com/r/adventofcode/)
+- There is much for me to learn
 
 <!-- omit in toc -->
 ## Table of Contents
