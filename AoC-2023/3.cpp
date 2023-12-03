@@ -7,6 +7,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include <cassert>
 
 using namespace std;
 
@@ -99,6 +100,8 @@ int main(int argc, char const *argv[])
 {
     read_input();
     solve_p1();
+    assert(ans == 550934);
     solve_p2();
+    assert(ans == 81997870);
     return 0;
 }
