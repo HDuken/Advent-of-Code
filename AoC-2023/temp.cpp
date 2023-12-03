@@ -16,20 +16,33 @@
 #include <map>
 
 using namespace std;
-#define PART2 true
 
-void solve()
+int ans = 0;
+string line;
+
+void read_input()
 {
-    int ans = 0;
-    string line;
     while (getline(cin, line)) {
-        cout << line << endl;
+        cout << line;
     }
-    cout << ans << endl;
+}
+
+void solve_p1()
+{
+    ans = 0;
+    cout << "P1: " << ans << endl;
+}
+
+void solve_p2()
+{
+    ans = 0;
+    cout << "P2: " << ans << endl;
 }
 
 int main(int argc, char const *argv[])
 {
-    solve();
+    read_input();
+    solve_p1();
+    solve_p2();
     return 0;
 }
