@@ -1,3 +1,4 @@
+#include <filesystem>
 #pragma GCC optimize("O2,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 
@@ -46,19 +47,53 @@ ostream& operator<<(ostream& os, const vector<T>& vect) noexcept {
     return os;
 }
 
-int ans = 0;
-string line;
+struct Map {
+    ll dst, src, len; 
+};
+
+vector<vector<Map>> m(7);
+
+ll ans = 0;
+string line, temp;
+vector<ll> seeds;
+ll a, b, c, x, y;
 
 void read_input()
 {
+    getline(cin, line);
+    stringstream ss(line);
+    ss >> temp;
+    while (ss >> x) {
+        seeds.push_back(x);
+    }
+
+    int i = -1;
     while (getline(cin, line)) {
-        cout << line << endl;
+        stringstream ss(line);
+        if (line.empty()) {
+            i++;
+            getline(cin, line);
+            ss >> temp >> temp;
+            continue;
+        }
+        ss >> a >> b >> c;
+        m[i].push_back({a, b, c});
     }
 }
 
 void solve_p1()
 {
-    ans = 0;
+    for (int i = 0; i < 7; i++) {
+        for (auto& seed : seeds) {
+            for (const auto& mi : m[i]) {
+                if (seed >= mi.src and seed < mi.src + mi.len) {
+                    seed = seed - mi.src + mi.dst;
+                    break;
+                }
+            }
+        }
+    }
+    ans = *min_element(all(seeds));
     cout << "P1: " << ans << endl;
 }
 
