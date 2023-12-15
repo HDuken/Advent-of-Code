@@ -1,43 +1,4 @@
-#pragma GCC optimize("O2,unroll-loops")
-// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
-
-#include <math.h>
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <numeric>
-#include <map>
-
-using namespace std;
-
-const int ALPHABET = 26;
-typedef long long ll;
-typedef pair<int, int> pii;
-
-#define endl        '\n'
-#define all(v)      v.begin(), v.end()
-#define ff          first
-#define ss          second
-
-// I/O
-#define get_arr(a, n)   for(int i = 0; i < n; i++)  cin >> a[i];
-#define LOG(x)          cerr << #x << " = " << x << endl;
-template <typename T, typename...Ts>
-constexpr void print(T&& first, Ts&&... rest) noexcept {
-    if constexpr (sizeof...(Ts) == 0)   cout << first << endl;
-    else {  cout << first << ' '; print(std::forward<Ts>(rest)...); }
-}
-template <typename T>
-void print(T a[], int n) {
-    for(int i = 0; i < n; i++)  cout << a[i] << " \n"[i == n - 1];
-}
-template <typename T>
-ostream& operator<<(ostream& os, const vector<T>& vect) noexcept {
-    for (const T& v : vect) { os << v << ' '; } os << endl;
-    return os;
-}
+#include "pch.hpp"
 
 int ans = 0;
 string line;
@@ -61,9 +22,9 @@ void read_input()
     }
 }
 
-void solve_p1()
+#if PART1
+void solve()
 {
-    ans = 0;
     for (int i = 0; i < vects_winning_nums.size(); i++) {
         int pt = 0;
         for (const int& n : vects_nums[i]) {
@@ -74,12 +35,11 @@ void solve_p1()
         }
         ans += pt;
     }
-    cout << "P1: " << ans << endl;
+    cout << ans << endl;
 }
-
-void solve_p2()
+#else
+void solve()
 {
-    ans = 0;
     vector<int> cnt_match(vects_winning_nums.size(), 0);
     vector<int> cnt_card(vects_winning_nums.size(), 1);
     for (int i = 0; i < vects_winning_nums.size(); i++) {
@@ -100,13 +60,13 @@ void solve_p2()
         }
     }
     ans = accumulate(cnt_card.begin(), cnt_card.end(), 0);
-    cout << "P2: " << ans << endl;
+    cout << ans << endl;
 }
+#endif // PART1
 
 int main(int argc, char const *argv[])
 {
     read_input();
-    solve_p1();
-    solve_p2();
+    solve();
     return 0;
 }
