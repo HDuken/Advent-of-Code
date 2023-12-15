@@ -1,3 +1,6 @@
+#ifndef AOC__PCH_HPP_
+#define AOC__PCH_HPP_
+
 #pragma GCC optimize("O2,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 
@@ -8,16 +11,16 @@
 #define PART1 false
 #endif // PART2
 
+#include <cmath>
+#include <array>
 #include <vector>
 #include <iostream>
 #include <ostream>
-// #include <strstream>
-// #include <cmath>
-// #include <array>
-// #include <numeric>
-// #include <sstream>
-// #include <algorithm>
-// #include <utility>
+#include <strstream>
+#include <numeric>
+#include <sstream>
+#include <algorithm>
+#include <utility>
 
 using namespace std;
 
@@ -48,24 +51,4 @@ ostream& operator<<(ostream& os, const vector<T>& vect) noexcept {
     return os;
 }
 
-int ans = 0;
-string line;
-
-void read_input()
-{
-    while (getline(cin, line)) {
-        cout << line << endl;
-    }
-}
-
-void solve()
-{
-    cout << ans << endl;
-}
-
-int main(int argc, char const *argv[])
-{
-    read_input();
-    solve();
-    return 0;
-}
+#endif  // AOC__PCH_HPP_

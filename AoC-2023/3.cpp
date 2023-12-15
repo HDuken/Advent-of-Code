@@ -66,7 +66,8 @@ void read_input()
     }
 }
 
-void solve_p1()
+#if PART1
+void solve()
 {
     ans = 0;
     for (const auto& n : nums) {
@@ -75,10 +76,10 @@ void solve_p1()
                 ans += n.val;
         }
     }
-    cout << "P1: " << ans << endl;
+    cout << ans << endl;
 }
-
-void solve_p2()
+#else
+void solve()
 {
     ans = 0;
     for (const auto& s : symbols) {
@@ -93,15 +94,20 @@ void solve_p2()
                 ans += adj_nums[0].val * adj_nums[1].val;
         }
     }
-    cout << "P2: " << ans << endl;
+    cout << ans << endl;
 }
+#endif // PART1
+
 
 int main(int argc, char const *argv[])
 {
     read_input();
-    solve_p1();
+#if PART1
+    solve();
     assert(ans == 550934);
-    solve_p2();
+#else
+    solve();
     assert(ans == 81997870);
+#endif // PART1
     return 0;
 }
