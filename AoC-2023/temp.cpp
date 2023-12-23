@@ -8,16 +8,15 @@
 #define PART1 false
 #endif // PART2
 
-#include <vector>
 #include <iostream>
 #include <ostream>
-// #include <strstream>
-// #include <cmath>
-// #include <array>
-// #include <numeric>
-// #include <sstream>
-// #include <algorithm>
-// #include <utility>
+#include <sstream>
+#include <cmath>
+#include <vector>
+#include <array>
+#include <numeric>
+#include <algorithm>
+#include <utility>
 
 using namespace std;
 
@@ -49,6 +48,7 @@ ostream& operator<<(ostream& os, const vector<T>& vect) noexcept {
 }
 
 int ans = 0;
+stringstream ss;
 string line;
 
 void read_input()
