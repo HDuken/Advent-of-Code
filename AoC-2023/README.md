@@ -1,13 +1,13 @@
 <!-- omit in toc -->
 # Advent-of-Code
 
-<!-- <div align="center"> -->
-<!--     <img src="https://img.shields.io/badge/Day%20📅-25-blue"> -->
-<!--     <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow"> -->
-<!--     <img src="https://img.shields.io/badge/Days%20Completed-20/25-red"> -->
-<!-- </div> -->
-<!---->
-<!-- ![d14p1](/imgs/aoc2022.png) -->
+<div align="center">
+    <img src="https://img.shields.io/badge/Day%20📅-25-blue">
+    <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
+    <img src="https://img.shields.io/badge/Days%20Completed-20/25-red">
+</div>
+
+![d14p1](Advent-of-Code/imgs/aoc2022.png)
 
 -------
 

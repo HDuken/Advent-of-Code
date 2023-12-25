@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/Days%20Completed-20/25-red">
 </div>
 
-![d14p1](/imgs/aoc2022.png)
+![d14p1](/AoC-2022/imgs/aoc2022.png)
 
 -------
 
