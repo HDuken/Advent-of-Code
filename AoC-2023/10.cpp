@@ -170,12 +170,16 @@ void solve()
 }
 
 void solve_2() {
+    // Calculate the area of the polygon with Shoelace formula
+    // https://en.wikipedia.org/wiki/Shoelace_formula
     int area = 0;
     for (int i = 0; i < vertices.size() - 1; i++) {
         area += vertices[i].ff * vertices[i + 1].ss;
         area -= vertices[i].ss * vertices[i + 1].ff;
     }
 
+    // Calculate the number of interior points with Pick's theorem
+    // https://en.wikipedia.org/wiki/Pick%27s_theorem
     area = abs(area) / 2;
     print("area =", area, "");
     ans = area + 1 - (vertices.size() - 1) / 2;
