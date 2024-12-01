@@ -4,7 +4,7 @@
     <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
 </div>
 
-![aoc2022](/AoC-2022/imgs/aoc2022.png)
+![aoc2022](imgs/aoc2022.png)
 
 There is much for me to learn
 
