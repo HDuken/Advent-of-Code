@@ -8,5 +8,5 @@
 
 ## Day 1
 
-- Simple operation on 2 arrays, simple sort them first
+- Simple operation on 2 arrays, simply sort them first
 - For the second half, use two pointers method. Not sure if needed, but surely a bit faster.
