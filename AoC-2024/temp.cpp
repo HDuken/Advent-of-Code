@@ -35,9 +35,7 @@ typedef pair<int, int> pii;
 #define ss second
 
 // I/O
-#define get_arr(a, n)                                                          \
-    for (int i = 0; i < n; i++)                                                  \
-        cin >> a[i];
+#define get_arr(a, n) for (int i = 0; i < n; i++) cin >> a[i];
 #define LOG(x) cerr << #x << " = " << x << endl;
 template <typename T, typename... Ts>
 constexpr void print(T &&first, Ts &&...rest) noexcept {
