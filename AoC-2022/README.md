@@ -4,7 +4,7 @@
     <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
 </div>
 
-![aoc2022](imgs/aoc2022.png)
+![aoc2022](aoc2022.png)
 
 There is much for me to learn
 
@@ -300,7 +300,7 @@ TODO: Read [r/adventofcode](https://www.reddit.com/r/adventofcode/comments/zkmyh
 
 It's certainly fun to watch the output grid
 
-![d14p1](/imgs/day14.png)
+![d14p1](day14.png)
 
 Part 1:
 

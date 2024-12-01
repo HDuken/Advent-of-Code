@@ -4,7 +4,7 @@
     <img src="https://img.shields.io/badge/Stars%20⭐-2/50-yellow">
 </div>
 
-![aoc2024](AoC-2024/imgs/aoc2024.png)
+![aoc2024](aoc2024.png)
 
 ## Day 1
 
