@@ -5,7 +5,7 @@
 
 #include "../pch.hpp"
 
-int ans = 0;
+int ans = 0;  // Test
 
 void read_input() {
     string line;
@@ -16,6 +16,7 @@ void read_input() {
 }
 
 void solve() {
+    // TODO
     cout << ans << endl;
 }
 

@@ -29,14 +29,14 @@ void solve() {
         ans += abs(ids_2[i] - ids_1[i]);
     }
 #else
-  auto it2 = ids_2.begin();
-  for (int i = 0; i < ids_1.size(); i++) {
-      while (*(it2) < ids_1[i] && it2 != ids_2.end()) {
-          it2++;
-      }
-      int cnt = count(it2, ids_2.end(), ids_1[i]);
-      ans += ids_1[i] * cnt;
-  }
+    auto it2 = ids_2.begin();
+    for (int i = 0; i < ids_1.size(); i++) {
+        while (*(it2) < ids_1[i] && it2 != ids_2.end()) {
+            it2++;
+        }
+        int cnt = count(it2, ids_2.end(), ids_1[i]);
+        ans += ids_1[i] * cnt;
+    }
 #endif  // PART1
 
     LOG(ans);
