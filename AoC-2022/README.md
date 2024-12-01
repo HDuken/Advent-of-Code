@@ -1,5 +1,4 @@
-<!-- omit in toc -->
-# Advent-of-Code
+# Advent of Code
 
 <div align="center">
     <img src="https://img.shields.io/badge/Day%20📅-25-blue">
@@ -9,40 +8,40 @@
 
 ![aoc2022](/AoC-2022/imgs/aoc2022.png)
 
--------
+There is much for me to learn
 
-My solutions for [Advent of Code 2022](https://adventofcode.com/2022).
+---
 
-- Other solutions, cool visualizations can also be found at [reddit/adventofcode](https://www.reddit.com/r/adventofcode/)
-- There is much for me to learn
-
-<!-- omit in toc -->
 ## Table of Contents
 
-- [Day 1](#day-1)
-- [Day 2](#day-2)
-- [Day 3](#day-3)
-- [Day 4](#day-4)
-- [Day 5](#day-5)
-- [Day 6](#day-6)
-- [Day 7](#day-7)
-- [Day 8](#day-8)
-- [Day 9](#day-9)
-- [Day 10](#day-10)
-- [Day 11](#day-11)
-- [Day 12](#day-12)
-- [Day 13](#day-13)
-- [Day 14](#day-14)
-- [Day 15](#day-15)
-- [Day 18](#day-18)
-- [Day 20](#day-20)
-- [Day 21](#day-21)
-- [Day 22](#day-22)
-- [Day 23](#day-23)
-- [Day 24](#day-24)
-- [Day 25](#day-25)
+<!-- vim-markdown-toc GFM -->
 
--------
+* [Day 1](#day-1)
+* [Day 2](#day-2)
+* [Day 3](#day-3)
+* [Day 4](#day-4)
+* [Day 5](#day-5)
+* [Day 6](#day-6)
+* [Day 7](#day-7)
+* [Day 8](#day-8)
+* [Day 9](#day-9)
+* [Day 10](#day-10)
+* [Day 11](#day-11)
+* [Day 12](#day-12)
+* [Day 13](#day-13)
+* [Day 14](#day-14)
+* [Day 15](#day-15)
+* [Day 18](#day-18)
+* [Day 20](#day-20)
+* [Day 21](#day-21)
+* [Day 22](#day-22)
+* [Day 23](#day-23)
+* [Day 24](#day-24)
+* [Day 25](#day-25)
+
+<!-- vim-markdown-toc -->
+
+---
 
 ## Day 1
 
@@ -57,7 +56,7 @@ Part 2:
 - For this part, simply extend a single maximum value to an array of 3 maximum values.
 - If the current sum is greater than the minimum of the 3 values, we update the array.
 
--------
+---
 
 ## Day 2
 
@@ -81,21 +80,21 @@ Part 2:
   - `(P1 + P2) MOD 3 == 1`: draw
   - `(P1 + P2) MOD 3 == 0`: lost
 
--------
+---
 
 ## Day 3
 
 Part 1:
 
 - Simply keep an array of size 53 to check whether each alphabet char is present in each half string.
-- If a char is present in both half string, add the *priority* to the result
+- If a char is present in both half string, add the _priority_ to the result
 - Use `std::string_view` to reduce storage
 
 Part 2:
 
 - Basically similar to part 1, now with 3 strings.
 
--------
+---
 
 ## Day 4
 
@@ -113,7 +112,7 @@ Part 2:
   - $lower\_bound_2 > upper\_bound_1$
   - $lower\_bound_1 > upper\_bound_2$
 
--------
+---
 
 ## Day 5
 
@@ -122,7 +121,7 @@ Part 2:
 - Reading the moving sequences and implementing it were rather simple with vector's `insert` and `erase`.
 - Part 2 is similar to part 1, only minor changes is needed for `insert` and `erase` methods.
 
--------
+---
 
 ## Day 6
 
@@ -132,7 +131,7 @@ Part 2:
   - Alternatively, we can create a $26 \times 1$ array to keep the presence of each alphabet char
 - With that, keep reading characters and increment the count until all characters are unique.
 
--------
+---
 
 ## Day 7
 
@@ -218,7 +217,7 @@ void FileTree::search_dir(LL &output, const LL &ref) {
 }
 ```
 
--------
+---
 
 ## Day 8
 
@@ -230,11 +229,11 @@ Part 1:
 
 Part 2:
 
-- The view at each tree is independent with the view of its neighbors. Thus, must have a function to get the view from each position and check the *scenic score* at every possible positions
+- The view at each tree is independent with the view of its neighbors. Thus, must have a function to get the view from each position and check the _scenic score_ at every possible positions
 - Though it's $\mathcal{O}(N^2)$, the map is small enough to go brute force like this.
 - Possible speed up with multi-threading, but it's not a must.
 
--------
+---
 
 ## Day 9
 
@@ -251,24 +250,24 @@ Part 2: things are getting fun now
 - The movement is much more complicated to just have a trajectory of few key points
 - Instead, simulate the whole movement, one step at a time
 
--------
+---
 
 ## Day 10
 
 - Store the signal strengths during each cycle in an array
 - Not extremely hard, just be careful when setting values
 
--------
+---
 
 ## Day 11
 
 - Reading the input was a bit tedious, but `stringstream` makes it easier
 - After finishing the class `Monkey` with relevant methods, it's straight-forward.
-- Simply iterate over the round, each over the monkeys and collect the result after their *"stuff-slinging simian shenanigans"*
+- Simply iterate over the round, each over the monkeys and collect the result after their _"stuff-slinging simian shenanigans"_
 - Part 2: As the relief no longer cases the worry level to be divided by 3, the worry level will keep increasing, and we will have to deal with very large number.
   - Notice that all the divisible checks have prime value. Thus, instead of keeping the large worry level, we could keep the modulus of it, by the product of all the prime numbers.
 
--------
+---
 
 ## Day 12
 
@@ -291,13 +290,13 @@ Part 2: only one minor change
 
 - Simply initialize the `to_visit` list with all level-`a` points
 
--------
+---
 
 ## Day 13
 
 TODO: Read [r/adventofcode](https://www.reddit.com/r/adventofcode/comments/zkmyh4/comment/j026ehh/)
 
--------
+---
 
 ## Day 14
 
@@ -319,7 +318,7 @@ Part 2: need few changes
 - Add the rock floor
 - Add stopping criteria when the sand block is still at the falling point.
 
--------
+---
 
 ## Day 15
 
@@ -344,7 +343,7 @@ Part 2: need few changes
   - For most rows, in the end, we end up with no interval, implying no position is possible for the distress beacon on that row.
   - Stop the loop when after subtracting all sub-intervals, we still have an interval left.
 
--------
+---
 
 ## Day 18
 
@@ -377,7 +376,7 @@ Part 2:
   ```
 
 - Fill the 3D gridmap with flood fill algorithm
-  
+
   ```cpp
   void fill_steam(
       Grid &grid, const vector<int> &range, int x, int y, int z)
@@ -401,20 +400,20 @@ Part 2:
 
 - Then, just as in part 1, for each `LAVA` cell, count how many of its 6 neighbors are `STEAM` cells
 
--------
+---
 
 ## Day 20
 
 - This is a problem for linked list.
 - The running time also shows using `std::shared_ptr<Node>` is slower than using raw pointer `Node*`, but of course, it's safer (auto deletion).
 - Define a circular bidirectional linked list as follows:
-  
+
   ```cpp
   struct Node
   {
       int val_;
       Node *prev_, *next_;
-  
+
       Node(const int &val)
       : val_(val), prev_(nullptr), next_(nullptr) {};
   };
@@ -424,7 +423,7 @@ Part 2:
 - The method `void move(LinkedList &A, const int &id)` is a bit complicate, but in the end, performs as expected.
 - Other than that, everything was clean and straight-forward
 
--------
+---
 
 ## Day 21
 
@@ -457,7 +456,7 @@ public:
 };
 ```
 
--------
+---
 
 ## Day 22
 
@@ -483,7 +482,7 @@ auto move = [&](char dir, int step)
 };
 ```
 
--------
+---
 
 ## Day 23
 
@@ -533,7 +532,7 @@ bool grid_map[3 * RANGE][3 * RANGE];
   - Due to the way we read the input line by line, we just have to check around `100-200` previous elves
   - With this strategy, we reduce run time to `10ms` for part 1, and `400ms` for part 2.
 
--------
+---
 
 ## Day 24
 
@@ -544,9 +543,9 @@ bool grid_map[3 * RANGE][3 * RANGE];
   - At any time step, reachable positions are those in neighbor of previous reachable positions.
   - It could include the previous reachable positions themselves, if possible
 - A bit tedious writing all the helper functions, but overall, it is not too complicated.
-- Part 2 is simply extension from 1 trip to 3 trips.  
+- Part 2 is simply extension from 1 trip to 3 trips.
 
--------
+---
 
 ## Day 25
 
