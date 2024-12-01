@@ -1,9 +1,7 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Day%20📅-25-blue">
     <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
-    <img src="https://img.shields.io/badge/Days%20Completed-20/25-red">
 </div>
 
 ![aoc2022](/AoC-2022/imgs/aoc2022.png)
