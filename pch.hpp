@@ -9,13 +9,6 @@
 #pragma GCC optimize("O2,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 
-#if PART1
-#define PART2 false
-#endif  // PART1
-#if PART2
-#define PART1 false
-#endif  // PART2
-
 #include <algorithm>
 #include <array>
 #include <cmath>
