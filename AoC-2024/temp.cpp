@@ -5,7 +5,7 @@
 
 #include "../pch.hpp"
 
-int ans = 0;  // Test
+int ans = 0;
 
 void read_input() {
     string line;
@@ -16,8 +16,8 @@ void read_input() {
 }
 
 void solve() {
-    // TODO
-    cout << ans << endl;
+    // TODO(Duck): duck
+    LOG(ans);
 }
 
 int main(int argc, char const *argv[]) {
