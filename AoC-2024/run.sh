@@ -10,6 +10,7 @@ if [ ! -e $1.cpp ]; then
     exit
 fi
 
-g++ -DPART"$2"=true "$1".cpp -o out -Winvalid-pch -H &&
+# g++ -DPART"$2"=true "$1".cpp -o out -Winvalid-pch -H &&
+g++ -DPART"$2"=true "$1".cpp -o out -Winvalid-pch &&
     ./out <"$1".txt &&
     rm -f out

@@ -10,7 +10,7 @@ int ans = 0;
 void read_input() {
     string line;
     while (getline(cin, line)) {
-        cout << line << endl;
+        LOG(line);
         stringstream ss(line);
     }
 }
