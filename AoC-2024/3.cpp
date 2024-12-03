@@ -4,65 +4,54 @@
  */
 
 #include <iostream>
+#include <regex>
+#include <sstream>
 #include <string>
+#include <vector>
 
 #include "../pch.hpp"
 
 ll ans = 0;
-
-const char S[] = "mul(";
-const char DO[] = "do()";
-const char DONT[] = "don't()";
+regex regexp("mul\\([0-9]*\\,[0-9]*\\)");
+regex d1("(.*?)don\\'t\\(\\)");
+regex d2("do\\(\\)(.*?)don\\'t\\(\\)");
+regex d3("do\\(\\)(.*?)");
 
 void read_input() {
     string line;
+    ll a, b;
+    string s;
+
     while (getline(cin, line)) {
-        size_t pos = 0;
-        size_t found = line.find(S, pos);
+        LOG(line);
+        replace(all(line), ' ', 'x');
 
-#if !PART1
-        size_t found_do = 0;
-        size_t found_dont = line.find(DONT, found_do);
-#endif  // !PART1
+        vector<string> lines;
+        smatch temp_m;
+        regex_search(line, temp_m, d1);
+        LOG(temp_m.str());
+        regex_search(line, temp_m, d2);
+        LOG(temp_m.str());
+        regex_search(line, temp_m, d3);
+        LOG(temp_m.str());
+        // lines.push_back(temp_m.str());
+        // LOG(lines);
+        // line = line.substr(lines.back().size());
+        // LOG(line);
+        LOG(lines);
 
-        while (found != string::npos) {
-#if !PART1
-            if (found > found_dont) {
-                found_do = line.find(DO, found_dont);
-                if (found_do == string::npos) break;
+        auto begin = std::sregex_iterator(all(line), regexp);
+        auto end = std::sregex_iterator();
+        for (std::sregex_iterator i = begin; i != end; ++i) {
+            std::smatch match = *i;
+            string instruction = match.str();
 
-                found_dont = line.find(DONT, found_do);
-                pos = found_do;
-                found = line.find(S, pos);
-                continue;
-            }
-#endif  // !PART1
-
-            pos = found + 4;
-            found = line.find(S, pos);
-            string temp_string;
-            ll a, b;
-
-            if (!isdigit(line[pos])) continue;
-            while (isdigit(line[pos])) {
-                temp_string += line[pos];
-                pos++;
-            }
-            if (line[pos] != ',') {
-                continue;
-            } else {
-                a = stoll(temp_string);
-                temp_string.clear();
-                pos++;
-            }
-            if (!isdigit(line[pos])) continue;
-            while (isdigit(line[pos])) {
-                temp_string += line[pos];
-                pos++;
-            }
-            if (line[pos] != ')') continue;
-            else b = stoll(temp_string);
-
+            instruction[3] = ' ';
+            instruction.back() = ' ';
+            replace(all(instruction), ',', ' ');
+            LOG(instruction);
+            stringstream ss(instruction);
+            ss >> s >> a >> b;
             ans += a * b;
         }
     }
