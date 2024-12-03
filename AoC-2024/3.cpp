@@ -15,31 +15,39 @@ ll ans = 0;
 regex regexp("mul\\([0-9]*\\,[0-9]*\\)");
 regex d1("(.*?)don\\'t\\(\\)");
 regex d2("do\\(\\)(.*?)don\\'t\\(\\)");
-regex d3("do\\(\\)(.*?)");
+regex d3("do\\(\\)(.*)");
 
 void read_input() {
     string line;
-    ll a, b;
-    string s;
+    vector<string> lines;
 
     while (getline(cin, line)) {
-        LOG(line);
         replace(all(line), ' ', 'x');
-
-        vector<string> lines;
+#if !PART1
         smatch temp_m;
         regex_search(line, temp_m, d1);
-        LOG(temp_m.str());
-        regex_search(line, temp_m, d2);
-        LOG(temp_m.str());
-        regex_search(line, temp_m, d3);
-        LOG(temp_m.str());
-        // lines.push_back(temp_m.str());
-        // LOG(lines);
-        // line = line.substr(lines.back().size());
-        // LOG(line);
-        LOG(lines);
+        lines.push_back(temp_m.str());
+        line = line.substr(lines.back().size());
 
+        while (regex_search(line, temp_m, d2)) {
+            string s = temp_m.str();
+            lines.push_back(s);
+            line = line.substr(line.find(s) + s.size());
+        }
+
+        regex_search(line, temp_m, d3);
+        lines.push_back(temp_m.str());
+#else
+        lines.push_back(line);
+#endif  // PART1
+    }
+    // for (auto line : lines) {
+    //     LOG(line);
+    // }
+
+    ll a, b;
+    string s;
+    for (string line : lines) {
         auto begin = std::sregex_iterator(all(line), regexp);
         auto end = std::sregex_iterator();
         for (std::sregex_iterator i = begin; i != end; ++i) {
@@ -49,7 +57,6 @@ void read_input() {
             instruction[3] = ' ';
             instruction.back() = ' ';
             replace(all(instruction), ',', ' ');
-            LOG(instruction);
             stringstream ss(instruction);
             ss >> s >> a >> b;
             ans += a * b;
@@ -67,5 +74,3 @@ int main(int argc, char const *argv[]) {
     solve();
     return 0;
 }
-// 161085926
-//  83950340
