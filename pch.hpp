@@ -15,16 +15,17 @@
 #include <iostream>
 #include <numeric>
 #include <ostream>
+#include <regex>
 #include <set>
 #include <sstream>
 #include <string>
 #include <utility>
 #include <vector>
 
-using namespace std; // NOLINT
+using namespace std;  // NOLINT
 
 const int ALPHABET = 26;
-typedef long long ll; // NOLINT
+typedef long long ll;  // NOLINT
 typedef pair<int, int> pii;
 
 #define endl '\n'
@@ -34,28 +35,25 @@ typedef pair<int, int> pii;
 
 // I/O
 #define get_arr(a, n)                                                          \
-  for (int i = 0; i < n; i++)                                                  \
-    cin >> a[i];
+    for (int i = 0; i < n; i++) cin >> a[i];
 #define LOG(x) cerr << #x << " = " << x << endl;
 template <typename T, typename... Ts>
 constexpr void print(T &&first, Ts &&...rest) noexcept {
-  if constexpr (sizeof...(Ts) == 0) {
-    cout << first << endl;
-  } else {
-    cout << first << ' ';
-    print(std::forward<Ts>(rest)...);
-  }
+    if constexpr (sizeof...(Ts) == 0) {
+        cout << first << endl;
+    } else {
+        cout << first << ' ';
+        print(std::forward<Ts>(rest)...);
+    }
 }
 template <typename T> void print(T a[], int n) {
-  for (int i = 0; i < n; i++)
-    cout << a[i] << " \n"[i == n - 1];
+    for (int i = 0; i < n; i++) cout << a[i] << " \n"[i == n - 1];
 }
 template <typename T>
 ostream &operator<<(ostream &os, const vector<T> &vect) noexcept {
-  for (const T &v : vect)
-    os << v << ' ';
-  os << endl;
-  return os;
+    for (const T &v : vect) os << v << ' ';
+    os << endl;
+    return os;
 }
 
-#endif // PCH_HPP_
+#endif  // PCH_HPP_

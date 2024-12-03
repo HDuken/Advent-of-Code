@@ -14,3 +14,9 @@
 ## Day 2
 
 - Instead of going with overly complicate if-else conditions, just brute force the heck out of it.
+
+## Day 3
+
+- Finally learn how to use `regex`
+- The `don't` flag doesn't reset by the end of each line, which sucks by the way.
+- Simply put everything in a single line to avoid coming up with another solution
