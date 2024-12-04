@@ -1,7 +1,7 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-4/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-8/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
@@ -20,3 +20,7 @@
 - Finally learn how to use `regex`
 - The `don't` flag doesn't reset by the end of each line, which sucks by the way.
 - Simply put everything in a single line to avoid coming up with another solution
+
+## Day 4
+
+It's so easy that I don't know what to write here. Just a bunch of if-else statements are enough `:))`
