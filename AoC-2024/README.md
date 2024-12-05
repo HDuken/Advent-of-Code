@@ -1,7 +1,7 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-8/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-10/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
@@ -24,3 +24,10 @@
 ## Day 4
 
 It's so easy that I don't know what to write here. Just a bunch of if-else statements are enough `:))`
+
+## Day 5
+
+- Not much to say, for each update, iterate over all rules
+  - Skip irrelevant rules, in which both components are not present
+- For part 2, save the list of related rules, in which both components are present
+  - Sort the array with insertion sort by swapping element
