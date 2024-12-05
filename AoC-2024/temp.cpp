@@ -17,11 +17,11 @@ void read_input() {
 
 void solve() {
     // TODO(Duck): duck
-    LOG(ans);
 }
 
 int main(int argc, char const *argv[]) {
     read_input();
     solve();
+    LOG(ans);
     return 0;
 }
