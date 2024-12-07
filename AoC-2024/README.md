@@ -31,3 +31,10 @@ It's so easy that I don't know what to write here. Just a bunch of if-else state
   - Skip irrelevant rules, in which both components are not present
 - For part 2, save the list of related rules, in which both components are present
   - Sort the array with insertion sort by swapping element
+
+## Day 6
+
+- Put obstacles on all visited positions in part 1.
+- Pure brute force on all possible obstacle positions
+- Detect the loop when a position is already visited, the same position with the same moving direction.
+  - Use a 3D `boolean` array. The first two dimensions correspond to the dimension of the map
