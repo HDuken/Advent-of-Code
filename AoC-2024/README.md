@@ -6,6 +6,11 @@
 
 ![aoc2024](aoc2024.png)
 
+## Day 7
+
+- Maintain a set to store temporary values
+- Iterate over all value in the array: Temporary values are all possible values from doing all possible operations between all previous temporary values with the current value
+
 ## Day 6
 
 - Put obstacles on all visited positions in part 1.
