@@ -1,29 +1,17 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-10/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-14/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
 
-## Day 1
+## Day 6
 
-- Simple operation on 2 arrays, simply sort them first
-- For the second half, use two pointers method. Not sure if needed, but surely a bit faster.
-
-## Day 2
-
-- Instead of going with overly complicate if-else conditions, just brute force the heck out of it.
-
-## Day 3
-
-- Finally learn how to use `regex`
-- The `don't` flag doesn't reset by the end of each line, which sucks by the way.
-- Simply put everything in a single line to avoid coming up with another solution
-
-## Day 4
-
-It's so easy that I don't know what to write here. Just a bunch of if-else statements are enough `:))`
+- Put obstacles on all visited positions in part 1.
+- Pure brute force on all possible obstacle positions
+- Detect the loop when a position is already visited, the same position with the same moving direction.
+  - Use a 3D `boolean` array. The first two dimensions correspond to the dimension of the map
 
 ## Day 5
 
@@ -32,9 +20,21 @@ It's so easy that I don't know what to write here. Just a bunch of if-else state
 - For part 2, save the list of related rules, in which both components are present
   - Sort the array with insertion sort by swapping element
 
-## Day 6
+## Day 4
 
-- Put obstacles on all visited positions in part 1.
-- Pure brute force on all possible obstacle positions
-- Detect the loop when a position is already visited, the same position with the same moving direction.
-  - Use a 3D `boolean` array. The first two dimensions correspond to the dimension of the map
+It's so easy that I don't know what to write here. Just a bunch of if-else statements are enough `:))`
+
+## Day 3
+
+- Finally learn how to use `regex`
+- The `don't` flag doesn't reset by the end of each line, which sucks by the way.
+- Simply put everything in a single line to avoid coming up with another solution
+
+## Day 2
+
+- Instead of going with overly complicate if-else conditions, just brute force the heck out of it.
+
+## Day 1
+
+- Simple operation on 2 arrays, simply sort them first
+- For the second half, use two pointers method. Not sure if needed, but surely a bit faster.
