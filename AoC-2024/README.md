@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-14/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-16/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 8
+
+- Simple math operations for 2D poses.
 
 ## Day 7
 

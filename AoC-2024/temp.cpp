@@ -6,9 +6,9 @@
 #include "../pch.hpp"
 
 int ans = 0;
-string line;
 
 void read_input() {
+    string line;
     while (getline(cin, line)) {
         LOG(line);
         stringstream ss(line);

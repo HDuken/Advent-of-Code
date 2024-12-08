@@ -4,21 +4,14 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <cctype>
-#include <iostream>
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
 
 int ans = 0;
 int n_row, n_col;
-string line;
 char m[50][50];
 map<char, vector<pii>> p;
 
 void read_input() {
+    string line;
     while (getline(cin, line)) {
         copy(all(line), m[n_row]);
         n_row++;
@@ -37,6 +30,7 @@ bool in_map(const pii &pt) {
     return true;
 }
 
+// Overload operators
 pii operator+(const pii &p1, const pii &p2) {
     return pii{p1.ff + p2.ff, p1.ss + p2.ss};
 }
@@ -45,8 +39,15 @@ pii operator-(const pii &p1, const pii &p2) {
 }
 pii operator*(const int &a, const pii &p) { return pii{a * p.ff, a * p.ss}; }
 pii operator/(const pii &p, const int &a) { return pii{p.ff / a, p.ss / a}; }
-pii get_node(const pii &p1, const pii &p2) { return p1 + 2 * (p2 - p1); }
 
+#if PART1
+vector<pii> get_nodes(const pii &p1, const pii &p2) {
+    vector<pii> out;
+    if (in_map(2 * p2 - p1)) out.push_back(2 * p2 - p1);
+    if (in_map(2 * p1 - p2)) out.push_back(2 * p1 - p2);
+    return out;
+}
+#else
 vector<pii> get_nodes(const pii &p1, const pii &p2) {
     vector<pii> out{p1};
 
@@ -66,39 +67,20 @@ vector<pii> get_nodes(const pii &p1, const pii &p2) {
     }
     return out;
 }
+#endif  // PART1
 
 void solve() {
-#if PART1
-    set<pii> nodes;
-    for (const auto &[c, v] : p) {
-        for (int i = 0; i < v.size(); i++) {
-            for (int j = 0; j < v.size(); j++) {
-                if (i == j) continue;
-                if (in_map(get_node(v[i], v[j])))
-                    nodes.insert(get_node(v[i], v[j]));
-                if (in_map(get_node(v[j], v[i])))
-                    nodes.insert(get_node(v[j], v[i]));
-            }
-        }
-    }
-
-    ans = nodes.size();
-#else
     set<pii> nodes;
     for (const auto &[c, v] : p) {
         if (v.size() == 1) continue;
         for (int i = 0; i < v.size(); i++) {
             for (int j = 0; j < v.size(); j++) {
                 if (i == j) continue;
-                for (const auto &pt : get_nodes(v[i], v[j])) {
-                    nodes.insert(pt);
-                }
+                for (const auto &pt : get_nodes(v[i], v[j])) nodes.insert(pt);
             }
         }
     }
-
-    ans += nodes.size();
-#endif  // PART1
+    ans = nodes.size();
 }
 
 int main(int argc, char const *argv[]) {
