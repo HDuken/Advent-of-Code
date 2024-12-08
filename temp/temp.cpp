@@ -1,19 +1,27 @@
-#pragma GCC optimize("O2,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+/*
+ *   Copyright (c) 2024 Duc Huu Nguyen
+ *   All rights reserved.
+ */
 
-#include <iostream>
-#include <vector>
+#include "../pch.hpp"
 
-using namespace std;
+int ans = 0;
 
-void solve()
-{
-    int N, M;
-    cin >> N >> M;
+void read_input() {
+    string line;
+    while (getline(cin, line)) {
+        LOG(line);
+        stringstream ss(line);
+    }
 }
 
-int main(int argc, char const *argv[])
-{
+void solve() {
+    // TODO(Duck): duck
+}
+
+int main(int argc, char const *argv[]) {
+    read_input();
     solve();
+    LOG(ans);
     return 0;
 }
