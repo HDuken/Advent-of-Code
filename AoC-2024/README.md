@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-18/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-20/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 10
+
+- Basically breadth first search
 
 ## Day 9
 
