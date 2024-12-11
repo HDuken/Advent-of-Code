@@ -1,10 +1,16 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-20/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-22/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 11
+
+- Dynamic programming with memoization
+- Have a map to store the score for input value v after n blinks
+- The score for `(v, n)`, if not already known, is equal to the sum of the score from transformed values with n-1 blinks.
 
 ## Day 10
 
