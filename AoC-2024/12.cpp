@@ -46,8 +46,7 @@ bool in_map(const pii &pt) {
     return true;
 }
 
-void flood_fill(const pii &p, const char &c, int &area, int &perimeter,
-                vector<Edge> &edges) {
+void flood_fill(const pii &p, const char &c, int &area, vector<Edge> &edges) {
     // If the point is out of the map
     if (!in_map(p)) return;
     // If already visited
@@ -57,7 +56,6 @@ void flood_fill(const pii &p, const char &c, int &area, int &perimeter,
 
     visited[p.ff][p.ss] = true;
     area++;
-    perimeter += 4;
 
     for (pii d : ds) {
         pii p_new = p + d;
@@ -65,12 +63,9 @@ void flood_fill(const pii &p, const char &c, int &area, int &perimeter,
             edges.push_back(Edge(p, p_new));
             continue;
         }
-        if (m[p_new.ff][p_new.ss] == c) {
-            perimeter--;
-        } else {
-            edges.push_back(Edge(p, p_new));
-        }
-        flood_fill(p_new, c, area, perimeter, edges);
+        if (m[p_new.ff][p_new.ss] != c) edges.push_back(Edge(p, p_new));
+
+        flood_fill(p_new, c, area, edges);
     }
 }
 
@@ -140,9 +135,8 @@ void solve() {
         for (int j = 0; j < n_col; j++) {
             if (visited[i][j]) continue;
             area = 0;
-            perimeter = 0;
             edges.clear();
-            flood_fill(pii{i, j}, m[i][j], area, perimeter, edges);
+            flood_fill(pii{i, j}, m[i][j], area, edges);
 #if !PART1
             combine_edges(edges);
 #endif  // !PART1
