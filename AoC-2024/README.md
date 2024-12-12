@@ -10,6 +10,12 @@
 
 - Use flood fill algorithm.
 - For the second part, combine segments of the perimeter.
+- The combining function was a bit tricky with edge cases
+  - Can not combine if the segments are in different direction
+  - Can not combine if the segments are not in neighbor
+  - Can not combine if there are certain changes in label
+    - This is not combinable: `[XA;BX]`
+    - But this is combinable: `[XA;XB]`, `[XX;AB]`
 
 ## Day 11
 
