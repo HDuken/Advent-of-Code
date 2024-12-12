@@ -113,13 +113,10 @@ void combine_edges(vector<Edge> &edges) {
 
             combined = true;
             Edge e = e1;
-            if (e.horizontal) {
-                e.c = min(e1.c, e2.c);
-                e.d = max(e1.d, e2.d);
-            } else {
-                e.a = min(e1.a, e2.a);
-                e.b = max(e1.b, e2.b);
-            }
+            e.c = min(e1.c, e2.c);
+            e.d = max(e1.d, e2.d);
+            e.a = min(e1.a, e2.a);
+            e.b = max(e1.b, e2.b);
             edges.push_back(e);
             edges.erase(edges.begin() + max(i, j));
             edges.erase(edges.begin() + min(i, j));
