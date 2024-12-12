@@ -129,7 +129,7 @@ void combine_edges(vector<Edge> &edges) {
 }
 
 void solve() {
-    int area, perimeter;
+    int area;
     vector<Edge> edges;
     for (int i = 0; i < n_row; i++) {
         for (int j = 0; j < n_col; j++) {
