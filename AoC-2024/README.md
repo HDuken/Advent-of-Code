@@ -6,6 +6,16 @@
 
 ![aoc2024](aoc2024.png)
 
+## Day 13
+
+- Finding integer solutions for system of 2 linear equations
+- There are 3 possible cases depending on the weights
+  - No solution
+  - One unique solution
+  - Infinite no. solutions
+- It's easy to deal with the 2 first cases
+- For the infinite case, use brute force to find valid integer solution with minimum cost
+
 ## Day 12
 
 - Use flood fill algorithm.
