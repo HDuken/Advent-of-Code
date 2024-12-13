@@ -6,12 +6,14 @@
 #include "../pch.hpp"
 
 int ans = 0;
+stringstream ss;
 
 void read_input() {
     string line;
     while (getline(cin, line)) {
         LOG(line);
-        stringstream ss(line);
+        ss.clear();
+        ss.str(line);
     }
 }
 

@@ -11,6 +11,7 @@
 
 #include "../pch.hpp"
 
+vector<string> lines;
 ll ans = 0;
 regex regexp("mul\\([0-9]*\\,[0-9]*\\)");
 regex d1("(.*?)don\\'t\\(\\)");
@@ -19,7 +20,6 @@ regex d3("do\\(\\)(.*)");
 
 void read_input() {
     string line;
-    vector<string> lines;
 
     while (getline(cin, line)) {
         replace(all(line), ' ', 'x');
@@ -41,10 +41,9 @@ void read_input() {
         lines.push_back(line);
 #endif  // PART1
     }
-    // for (auto line : lines) {
-    //     LOG(line);
-    // }
+}
 
+void solve() {
     ll a, b;
     string s;
     for (string line : lines) {
@@ -62,10 +61,6 @@ void read_input() {
             ans += a * b;
         }
     }
-}
-
-void solve() {
-    // TODO(duck)
     LOG(ans);
 }
 

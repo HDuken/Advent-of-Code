@@ -6,6 +6,7 @@
 #include "../pch.hpp"
 
 ll ans = 0;
+stringstream ss;
 
 struct Button {
     ll a, b;
@@ -15,7 +16,6 @@ vector<Button> ba, bb, p;
 
 void read_input() {
     string line;
-    stringstream ss;
     ll a, b;
     char c;
     int i = 0;
