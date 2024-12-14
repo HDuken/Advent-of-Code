@@ -56,4 +56,15 @@ ostream &operator<<(ostream &os, const vector<T> &vect) noexcept {
     return os;
 }
 
+// Overload operators
+pii operator+(const pii &p1, const pii &p2) {
+    return pii{p1.ff + p2.ff, p1.ss + p2.ss};
+}
+pii operator-(const pii &p1, const pii &p2) {
+    return pii{p1.ff - p2.ff, p1.ss - p2.ss};
+}
+pii operator*(const int &a, const pii &p) { return pii{a * p.ff, a * p.ss}; }
+pii operator*(const pii &p, const int &a) { return pii{a * p.ff, a * p.ss}; }
+pii operator/(const pii &p, const int &a) { return pii{p.ff / a, p.ss / a}; }
+
 #endif  // PCH_HPP_
