@@ -4,10 +4,6 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <fstream>
-#include <string>
-#include <vector>
 
 int ans = 0;
 stringstream ss;
@@ -65,8 +61,8 @@ void solve() {
     }
 
     for (Robot r : robots) m[r.p.ss][r.p.ff]++;
-    for (int i = 0; i < n_row; i++) {
-        for (int j = 0; j < n_col; j++) {
+    for (int i = 35; i < 75; i++) {
+        for (int j = 14; j < 54; j++) {
             if (m[i][j] == 0) cout << '.';
             else cout << m[i][j];
         }

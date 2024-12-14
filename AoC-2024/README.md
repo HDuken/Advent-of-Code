@@ -1,10 +1,16 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-26/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-28/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 14
+
+- Part 1 involves just with coordinate calculation and using modulo
+- Part 2 is fun `:))`. Did a bit of binary search to find a shorter range: 6500 - 7000
+- Then literally checking through each outputs
 
 ## Day 13
 
