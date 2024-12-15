@@ -133,19 +133,17 @@ void solve() {
         }
 #endif  // PART1
 
+#if PART1
         // Case 3.1: still hit the wall
-#if PART1
         if (m[robot_new.ff][robot_new.ss] == '#') continue;
-#else
-        if (blocked) continue;
-#endif  // PART1
-
         // Case 3.2: move all boxes along the way
-#if PART1
         for (int id : box_ids) m[boxes[id].ff][boxes[id].ss] = '.';
         for (int id : box_ids) boxes[id] = boxes[id] + d;
         for (int id : box_ids) m[boxes[id].ff][boxes[id].ss] = 'O';
 #else
+        // Case 3.1: still hit the wall
+        if (blocked) continue;
+        // Case 3.2: move all boxes along the way
         for (int id : box_ids) {
             m[boxes[id].ff][boxes[id].ss] = '.';
             m[boxes[id].ff][boxes[id].ss + 1] = '.';
