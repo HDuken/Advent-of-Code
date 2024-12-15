@@ -1,10 +1,17 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-28/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-30/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 15
+
+- The simulation for part 2 was a bit tricky
+- Maintain a set of space in the map that will be moved or be moved in to.
+- That set has to contain the spaces of all objects, two spaces for each object, and also the spaces the objects will move into
+- Extend this set when the space moved into include another object.
 
 ## Day 14
 

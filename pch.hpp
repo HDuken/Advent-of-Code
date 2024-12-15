@@ -66,5 +66,9 @@ pii operator-(const pii &p1, const pii &p2) {
 pii operator*(const int &a, const pii &p) { return pii{a * p.ff, a * p.ss}; }
 pii operator*(const pii &p, const int &a) { return pii{a * p.ff, a * p.ss}; }
 pii operator/(const pii &p, const int &a) { return pii{p.ff / a, p.ss / a}; }
+ostream &operator<<(ostream &os, const pii &p) noexcept {
+    os << p.ff << ' ' << p.ss;
+    return os;
+}
 
 #endif  // PCH_HPP_
