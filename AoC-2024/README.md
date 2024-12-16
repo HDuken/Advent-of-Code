@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-30/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-32/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 16
+
+- Still using breadth-first search
+- In part 2, kind of back-tracking the path from the end point.
 
 ## Day 15
 
