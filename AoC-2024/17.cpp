@@ -4,11 +4,6 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <string>
-#include <vector>
 
 vector<ll> ans;
 stringstream ss;
@@ -120,7 +115,7 @@ void solve() {
             }
         }
     }
-    ans.push_back(*va[0].begin());
+    ans.insert(ans.begin(), all(va[0]));
 #endif  // PART1
 }
 

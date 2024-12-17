@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-32/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-34/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 17
+
+- In part 2, hard-code the inversion, not so nice, but it works
+- Not much to say for part 1, just implement all operations
 
 ## Day 16
 
