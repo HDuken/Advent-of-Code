@@ -6,6 +6,8 @@
 #include "../pch.hpp"
 
 int ans = 0;
+int n_row = 0, n_col = 0;
+pii ds[4] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 stringstream ss;
 
 void read_input() {
