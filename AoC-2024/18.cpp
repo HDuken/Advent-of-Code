@@ -68,32 +68,11 @@ void bfs() {
 void solve() {
 #if PART1
     for (int i = 0; i < 1024; i++) m[vs[i].ff][vs[i].ss] = '#';
-
     bfs();
     ans = cost[N - 1][N - 1];
-
-    // int val = cost[N - 1][N - 1];
-    // pii s(N - 1, N - 1);
-    // vector<pii> ps{s};
-    // while (val >= 0) {
-    //     vector<pii> temp_ps{s};
-    //     for (pii p : ps) {
-    //         if (m[p.ff][p.ss] == '#' || m[p.ff][p.ss] == 'O') continue;
-    //         m[p.ff][p.ss] = 'O';
-    //         for (pii d : ds) {
-    //             pii n = p + d;
-    //             if (cost[n.ff][n.ss] + 1 == cost[p.ff][p.ss])
-    //                 temp_ps.push_back(n);
-    //         }
-    //     }
-    //     swap(ps, temp_ps);
-    //     val--;
-    // }
-
 #else
-    // Binary search
-    ans = 2911;
-    cout << vs[ans].ss << ',' << vs[ans].ff << endl;
+    ans = 2911;  // Manual binary search
+    cout << "ans = " << vs[ans].ss << ',' << vs[ans].ff << endl;
 #endif  // PART1
 }
 
