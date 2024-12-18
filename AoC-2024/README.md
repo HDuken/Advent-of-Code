@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-34/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-36/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 18
+
+- Use BFS for part 1.
+- Use binary search for part 2. I did it manually such that I don't have to write simulation code
 
 ## Day 17
 
