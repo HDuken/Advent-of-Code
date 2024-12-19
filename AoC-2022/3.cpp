@@ -1,22 +1,16 @@
-#pragma GCC optimize("O2,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+/*
+ *   Copyright (c) 2022 Duc Huu Nguyen
+ *   All rights reserved.
+ */
 
-#include <iostream>
-#include <string>
-#include <array>
+#include "../pch.hpp"
 
-using namespace std;
-#define PART1 false
-
-int char2int(const char c)
-{
-    if (isupper(c))
-        return c - 'A' + 27;
+int char2int(const char c) {
+    if (isupper(c)) return c - 'A' + 27;
     return c - 'a' + 1;
 }
 
-void solve()
-{
+void solve() {
     array<int, 53> chars;
     int result = 0;
 
@@ -32,16 +26,13 @@ void solve()
         cin >> bag2 >> bag3;
 #endif
         chars.fill(0);
-        for (char c : bag1)
-            chars[char2int(c)] = 1;
+        for (char c : bag1) chars[char2int(c)] = 1;
         for (char c : bag2) {
-            if (chars[char2int(c)] == 1)
-                chars[char2int(c)] = 2;
+            if (chars[char2int(c)] == 1) chars[char2int(c)] = 2;
         }
 #if !PART1
         for (char c : bag3) {
-            if (chars[char2int(c)] == 2)
-                chars[char2int(c)] = 3;
+            if (chars[char2int(c)] == 2) chars[char2int(c)] = 3;
         }
 #endif
 
@@ -57,8 +48,7 @@ void solve()
     cout << result << endl;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     solve();
     return 0;
 }

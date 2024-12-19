@@ -1,14 +1,11 @@
-#pragma GCC optimize("O2,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+/*
+ *   Copyright (c) 2022 Duc Huu Nguyen
+ *   All rights reserved.
+ */
 
-#include <iostream>
-#include <vector>
+#include "../pch.hpp"
 
-using namespace std;
-#define PART1 true
-
-void solve()
-{
+void solve() {
     int low1, high1, low2, high2;
     char c;
     int result = 0;
@@ -19,16 +16,14 @@ void solve()
             (low1 >= low2 && high1 <= high2))
             result++;
 #else
-        if ((low2 > high1) || (high2 < low1))
-            continue;
+        if ((low2 > high1) || (high2 < low1)) continue;
         result++;
 #endif
     }
     cout << result << endl;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     solve();
     return 0;
 }
