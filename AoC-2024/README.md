@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-36/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-38/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 19
+
+- Use dynamic programming with memoization for both part.
+- For part 2, it was a bit tricky how to subtract the duplicates.
 
 ## Day 18
 
