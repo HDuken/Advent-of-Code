@@ -1,6 +1,7 @@
 #include "../pch.hpp"
 
 int ans = 0;
+
 string line;
 string card, num;
 int id;
@@ -31,7 +32,6 @@ void solve() {
         }
         ans += pt;
     }
-    cout << ans << endl;
 }
 #else
 void solve() {
@@ -54,12 +54,12 @@ void solve() {
         }
     }
     ans = accumulate(cnt_card.begin(), cnt_card.end(), 0);
-    cout << ans << endl;
 }
 #endif  // PART1
 
 int main(int argc, char const *argv[]) {
     read_input();
     solve();
+    LOG(ans);
     return 0;
 }

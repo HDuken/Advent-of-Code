@@ -1,10 +1,9 @@
 /*
- *   Copyright (c) 2024 Duc Huu Nguyen
+ *   Copyright (c) 2023 Duc Huu Nguyen
  *   All rights reserved.
  */
 
 #include "../pch.hpp"
-#include <utility>
 
 int ans = 0;
 vector<string> m;
@@ -12,9 +11,9 @@ int n_row, n_col;
 
 void tranpose() {
     vector<string> m_tranpose(n_col, string(n_row, '.'));
-    for (int i = 0; i < n_col; i++) {
+    for (int i = 0; i < n_col; i++)
         for (int j = 0; j < n_row; j++) m_tranpose[i][j] = m[j][i];
-    }
+
     swap(m, m_tranpose);
     swap(n_row, n_col);
 }
@@ -105,6 +104,7 @@ void read_input() {
         n_row++;
         if (!n_col) n_col = line.size();
     }
+
     solve();
 }
 

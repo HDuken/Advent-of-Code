@@ -1,17 +1,12 @@
-#pragma GCC optimize("O2,unroll-loops")
-// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+/*
+ *   Copyright (c) 2023 Duc Huu Nguyen
+ *   All rights reserved.
+ */
 
-#include <math.h>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <map>
-#include <cassert>
-
-using namespace std;
+#include "../pch.hpp"
 
 int ans = 0;
+
 string line, str_num;
 int num_rows = 0, num_cols = 0;
 int j_start = 0, j_end = 0;
@@ -37,8 +32,7 @@ void update_vects() {
     for (int j = 0; j < line.size(); j++) {
         if (isdigit(line[j])) {
             str_num += line[j];
-            if (str_num.size() == 1)
-                j_start = j;
+            if (str_num.size() == 1) j_start = j;
             j_end = j;
         } else if (line[j] != '.') {
             symbols.push_back({line[j], num_rows, j});
@@ -50,16 +44,13 @@ void update_vects() {
     check_num();
 }
 
-bool is_adjacent(const Num& n, const Symbol& s) {
-    if (s.i < n.i - 1 or s.i > n.i + 1)
-        return false;
-    if (s.j < n.j_start - 1 or s.j > n.j_end + 1)
-        return false;
+bool is_adjacent(const Num &n, const Symbol &s) {
+    if (s.i < n.i - 1 or s.i > n.i + 1) return false;
+    if (s.j < n.j_start - 1 or s.j > n.j_end + 1) return false;
     return true;
 }
 
-void read_input()
-{
+void read_input() {
     while (getline(cin, line)) {
         update_vects();
         num_rows++;
@@ -67,47 +58,31 @@ void read_input()
 }
 
 #if PART1
-void solve()
-{
+void solve() {
     ans = 0;
-    for (const auto& n : nums) {
-        for (const auto& s : symbols) {
-            if (is_adjacent(n, s))
-                ans += n.val;
-        }
+    for (const auto &n : nums) {
+        for (const auto &s : symbols)
+            if (is_adjacent(n, s)) ans += n.val;
     }
     cout << ans << endl;
 }
 #else
-void solve()
-{
-    ans = 0;
-    for (const auto& s : symbols) {
+void solve() {
+    for (const auto &s : symbols) {
         if (s.c == '*') {
             vector<Num> adj_nums;
-            for (const auto& n : nums) {
-                if (is_adjacent(n, s))
-                    adj_nums.push_back(n);
-            }
+            for (const auto &n : nums)
+                if (is_adjacent(n, s)) adj_nums.push_back(n);
 
-            if (adj_nums.size() == 2)
-                ans += adj_nums[0].val * adj_nums[1].val;
+            if (adj_nums.size() == 2) ans += adj_nums[0].val * adj_nums[1].val;
         }
     }
-    cout << ans << endl;
 }
-#endif // PART1
+#endif  // PART1
 
-
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     read_input();
-#if PART1
     solve();
-    assert(ans == 550934);
-#else
-    solve();
-    assert(ans == 81997870);
-#endif // PART1
+    LOG(ans);
     return 0;
 }

@@ -107,7 +107,6 @@ void solve() {
     }
 
     ans = *min_element(all(seeds));
-    cout << ans << endl;
 #else   // PART1
     for (int i = 0; i < 7; i++) {
         clean_ranges();
@@ -123,9 +122,8 @@ void solve() {
                     Range r3 = get_intersect(r1, r2);
                     vector<Range> r4 = r1 - r2;
                     ranges_new.push_back(C2(r3.s - mi.src + mi.dst, r3.len));
-                    if (!r4.empty()) {
+                    if (!r4.empty())
                         for (auto &r : r4) ranges.push_back(r);
-                    }
                     break;
                 }
             }
@@ -138,12 +136,12 @@ void solve() {
 
     ans = ranges[0].s;
     for (const auto &r : ranges) ans = min(ans, r.s);
-    cout << ans << endl;
 #endif  // PART1
 }
 
 int main(int argc, char const *argv[]) {
     read_input();
     solve();
+    LOG(ans);
     return 0;
 }
