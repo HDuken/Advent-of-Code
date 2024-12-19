@@ -4,21 +4,13 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <cmath>
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
 
-int ans = 0;
-int n_row = 0, n_col = 0;
-pii ds[4] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+ll ans = 0;
 stringstream ss;
 map<string, bool> m;
-map<string, int> m_cnt;
-set<string> vs;
-int max_size = 0;
+map<string, ll> m_cnt;
+map<string, vector<pair<string, string>>> m_special;
+vector<string> vs;
 
 void read_input() {
     string line;
@@ -28,11 +20,15 @@ void read_input() {
     ss.str(line);
     string s;
     while (ss >> s) {
-        vs.insert(s);
-        max_size = max(max_size, static_cast<int>(s.size()));
+        vs.push_back(s);
         m[s] = true;
     }
     getline(cin, line);
+
+    sort(all(vs), [](const string &s1, const string &s2) {
+        if (s1.size() == s2.size()) return s1 < s2;
+        return s1.size() < s2.size();
+    });
 }
 
 bool check(const string &s) {
@@ -51,52 +47,58 @@ bool check(const string &s) {
     return false;
 }
 
-int count(const string &s) {
-    if (m_cnt.find(s) != m_cnt.end()) return m_cnt[s];
-    if (s.size() == 1) {
-        if (find(all(vs), s) != vs.end()) {
-            m_cnt[s] = 1;
-            return 1;
-        } else {
-            m_cnt[s] = 0;
-            return 0;
-        }
-    }
-    int cnt = 0;
+ll count(const string &str) {
+    if (m_cnt.find(str) != m_cnt.end()) return m_cnt[str];
 
-    for (string str : vs) {
-        if (str.size() > s.size()) continue;
-        string s1 = s.substr(0, str.size());
-        string s2 = s.substr(str.size());
-        if (s1 == str && check(s2)) {
-            cnt += count(s2);
+    ll cnt = 0;
+    for (string s : vs) {
+        if (str[0] != s[0] || s.size() > str.size()) continue;
+        if (str.size() == s.size()) {
+            if (str == s) cnt++;
+            continue;
         }
+
+        // str.size() > s.size()
+        string s1 = str.substr(0, s.size());
+        string s2 = str.substr(s.size());
+        if (s != s1 || !check(s2)) continue;
+
+        cnt += count(s1) * count(s2);
+        if (m_special.find(s) != m_special.end())
+            for (auto [sa, sb] : m_special[s]) cnt -= count(sb) * count(s2);
     }
 
-    m_cnt[s] = cnt;
+    m_cnt[str] = cnt;
     return cnt;
 }
 
 void solve() {
+#if !PART1
+    for (string s : vs) {
+        count(s);
+        if (m_cnt[s] == 1) continue;
+        for (string s1 : vs) {
+            if (s1.size() >= s.size()) continue;
+            string s2 = s.substr(0, s1.size());
+            string s3 = s.substr(s1.size());
+            if (s1 != s2 || !m[s3]) continue;
+            if (m_special.find(s) != m_special.end())
+                m_special[s].push_back(make_pair(s2, s3));
+            else m_special[s] = vector<pair<string, string>>{make_pair(s2, s3)};
+        }
+    }
+#endif  // !PART1
+
     string line;
     while (getline(cin, line)) {
         if (check(line)) {
 #if PART1
             ans++;
 #else
-            LOG(line);
-            LOG(count(line));
             ans += count(line);
 #endif  // PART1
         }
     }
-
-#if !PART1
-    // for (string s : vs) {
-    //     cout << s << ' ';
-    //     LOG(count(s));
-    // }
-#endif  // !PART1
 }
 
 int main(int argc, char const *argv[]) {

@@ -52,7 +52,6 @@ template <typename T> void print(T a[], int n) {
 template <typename T>
 ostream &operator<<(ostream &os, const vector<T> &vect) noexcept {
     for (const T &v : vect) os << v << ' ';
-    os << endl;
     return os;
 }
 
