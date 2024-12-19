@@ -1,19 +1,13 @@
-#pragma GCC optimize("O2,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+/*
+ *   Copyright (c) 2022 Duc Huu Nguyen
+ *   All rights reserved.
+ */
 
-#include <iostream>
-#include <string>
-#include <fstream>
-
-using namespace std;
-
-#define PART1 true
+#include "../pch.hpp"
 
 #if !PART1
-void update_top3(int arr[3], const int &val)
-{
-    if (val <= arr[0])
-        return;
+void update_top3(int arr[3], const int &val) {
+    if (val <= arr[0]) return;
     if (val <= arr[1]) {
         arr[0] = val;
         return;
@@ -28,14 +22,13 @@ void update_top3(int arr[3], const int &val)
 }
 #endif
 
-void solve()
-{
+void solve() {
     string line;
     int sum = 0;
 #if PART1
     int max = 0;
 #else
-    int top3_vals[3] = { 0 };
+    int top3_vals[3] = {0};
 #endif
 
     ifstream fileIn("day1.txt");
@@ -51,8 +44,10 @@ void solve()
             } else {
                 sum += stoi(line);
             }
-        }   fileIn.close();
-    }   else cout << "Unable to open file" << endl;
+        }
+        fileIn.close();
+    } else cout << "Unable to open file" << endl;
+
 #if PART1
     max = (max < sum) ? sum : max;
     cout << max << endl;
@@ -62,8 +57,7 @@ void solve()
 #endif
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     solve();
     return 0;
 }
