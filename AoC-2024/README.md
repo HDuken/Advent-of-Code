@@ -1,7 +1,7 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-38/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-40/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)

@@ -30,16 +30,6 @@ bool in_map(const pii &pt) {
     return true;
 }
 
-// Overload operators
-pii operator+(const pii &p1, const pii &p2) {
-    return pii{p1.ff + p2.ff, p1.ss + p2.ss};
-}
-pii operator-(const pii &p1, const pii &p2) {
-    return pii{p1.ff - p2.ff, p1.ss - p2.ss};
-}
-pii operator*(const int &a, const pii &p) { return pii{a * p.ff, a * p.ss}; }
-pii operator/(const pii &p, const int &a) { return pii{p.ff / a, p.ss / a}; }
-
 #if PART1
 vector<pii> get_nodes(const pii &p1, const pii &p2) {
     vector<pii> out;
