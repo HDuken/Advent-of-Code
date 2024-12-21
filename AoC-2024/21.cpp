@@ -4,17 +4,13 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
 
 ll ans = 0;
-pii ds[4] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-stringstream ss;
+#if PART1
+const int N_LAYERS = 4;
+#else
+const int N_LAYERS = 27;
+#endif  // PART1
 vector<string> cmds;
 // The map of the positions on numeric keyboard
 map<char, pii> m_nk = {
@@ -27,120 +23,65 @@ map<char, pii> m_dk = {
     {'X', {0, 0}}, {'^', {0, 1}}, {'A', {0, 2}},
     {'<', {1, 0}}, {'v', {1, 1}}, {'>', {1, 2}},
 };
-pii s_nk{m_nk['A']};
-pii s_dk{m_dk['A']};
+// The number of need steps to go from S to G by robot R
+map<tuple<char, char, int>, ll> dp;
 
-set<string> get_cmd_num(const set<string> &cmds_in) {
-    set<string> cmds_out{""};
-    pii p = s_nk, mid_point;
-    for (string cmd_in : cmds_in) {
-        for (char button : cmd_in) {
-            set<string> cmds_temp;
-            int x = (m_nk[button] - p).ff;
-            int y = (m_nk[button] - p).ss;
-            mid_point = pii{m_nk[button].ff, p.ss};
-            if (mid_point != m_nk['X']) {
-                for (string cmd : cmds_out) {
-                    if (x > 0) cmd.append(x, 'v');
-                    else if (x < 0) cmd.append(-x, '^');
-                    if (y > 0) cmd.append(y, '>');
-                    else if (y < 0) cmd.append(-y, '<');
-                    cmd.append(1, 'A');
-                    cmds_temp.insert(cmd);
-                }
-            }
-            mid_point = pii{p.ff, m_nk[button].ss};
-            if (mid_point != m_nk['X']) {
-                for (string cmd : cmds_out) {
-                    if (y > 0) cmd.append(y, '>');
-                    else if (y < 0) cmd.append(-y, '<');
-                    if (x > 0) cmd.append(x, 'v');
-                    else if (x < 0) cmd.append(-x, '^');
-                    cmd.append(1, 'A');
-                    cmds_temp.insert(cmd);
-                }
-            }
-            swap(cmds_out, cmds_temp);
-            p = m_nk[button];
-        }
-    }
-    return cmds_out;
+vector<string> get_path(const pii &s, const pii &e, const map<char, pii> &m) {
+    if (s == m.at('X')) return {};
+    if (s == e) return {"A"};
+
+    vector<string> out;
+    if (e.ff < s.ff)
+        for (string s : get_path(pii(s.ff - 1, s.ss), e, m))
+            out.push_back('^' + s);
+    if (e.ff > s.ff)
+        for (string s : get_path(pii(s.ff + 1, s.ss), e, m))
+            out.push_back('v' + s);
+    if (e.ss < s.ss)
+        for (string s : get_path(pii(s.ff, s.ss - 1), e, m))
+            out.push_back('<' + s);
+    if (e.ss > s.ss)
+        for (string s : get_path(pii(s.ff, s.ss + 1), e, m))
+            out.push_back('>' + s);
+    return out;
 }
 
-set<string> get_cmd_dir(const set<string> &cmds_in) {
-    set<string> cmds_out;
-    for (string cmd_in : cmds_in) {
-        set<string> cmds_out_individual{""};
-        pii p = s_dk, mid_point;
-        for (char button : cmd_in) {
-            set<string> cmds_temp;
-            int x = (m_dk[button] - p).ff;
-            int y = (m_dk[button] - p).ss;
-            mid_point = pii{m_nk[button].ff, p.ss};
-            if (mid_point != m_nk['X']) {
-                for (string cmd : cmds_out_individual) {
-                    if (x > 0) cmd.append(x, 'v');
-                    else if (x < 0) cmd.append(-x, '^');
-                    if (y > 0) cmd.append(y, '>');
-                    else if (y < 0) cmd.append(-y, '<');
-                    cmd.append(1, 'A');
-                    cmds_temp.insert(cmd);
-                }
-            }
-            mid_point = pii{p.ff, m_nk[button].ss};
-            if (mid_point != m_nk['X']) {
-                for (string cmd : cmds_out_individual) {
-                    if (y > 0) cmd.append(y, '>');
-                    else if (y < 0) cmd.append(-y, '<');
-                    if (x > 0) cmd.append(x, 'v');
-                    else if (x < 0) cmd.append(-x, '^');
-                    cmd.append(1, 'A');
-                    cmds_temp.insert(cmd);
-                }
-            }
-            swap(cmds_out_individual, cmds_temp);
-            p = m_dk[button];
-        }
+ll get_length(const char &s, const char &e, const int &level) {
+    if (level == N_LAYERS - 1) return 1;
+    auto key = make_tuple(s, e, level);
+    if (dp.count(key)) return dp[key];
 
-        for (string cmd : cmds_out_individual) cmds_out.insert(cmd);
+    ll cnt = -1;
+    for (const string &p : (level == 0) ? get_path(m_nk[s], m_nk[e], m_nk)
+                                        : get_path(m_dk[s], m_dk[e], m_dk)) {
+        ll len = 0;
+        char a = 'A';
+        for (char b : p) {
+            len += get_length(a, b, level + 1);
+            a = b;
+        }
+        if (cnt < 0 || len < cnt) cnt = len;
     }
 
-    // Get the minimum length
-    ll min_size = cmds_out.begin()->size();
-    for (string cmd : cmds_out) min_size = min(min_size, (ll)cmd.size());
-    set<string> temp_cmds_out;
-    for (string cmd : cmds_out)
-        if (cmd.size() == min_size) temp_cmds_out.insert(cmd);
-    cmds_out.clear();
-    cmds_out.insert(*temp_cmds_out.begin());
-    cmds_out.insert(*(--temp_cmds_out.end()));
-    return cmds_out;
+    dp[key] = cnt;
+    return dp[key];
 }
 
 void read_input() {
     string line;
-    pii p = s_dk;
     while (getline(cin, line)) cmds.push_back(line);
 }
 
 void solve() {
-    set<string> ss;
-
     for (string cmd : cmds) {
-        ss.clear();
-        ss.insert(cmd);
-        ss = get_cmd_num(ss);
-#if PART1
-        for (int i = 0; i < 2; i++) ss = get_cmd_dir(ss);
-#else
-        for (int i = 0; i < 3; i++) ss = get_cmd_dir(ss);
-#endif  // PART1
-        cmd.erase(cmd.end() - 1);
-
-        ll min_size = ss.begin()->size();
-        for (string s : ss) min_size = min((ll)s.size(), min_size);
-
-        ans += min_size * stoll(cmd);
+        ll len = 0;
+        char s = 'A';
+        for (char e : cmd) {
+            len += get_length(s, e, 0);
+            s = e;
+        }
+        print(cmd, len);
+        ans += len * stoll(cmd.substr(0, 3));
     }
 }
 
