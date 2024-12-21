@@ -1,10 +1,19 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-40/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-42/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 21
+
+- For part 1, it's still possible to just use brute force: save all possible combinations and find the shortest one.
+- For part 2, I needed some help from `reddit`. I thought of dynamic programming with memoization again, but was struggle on how to combine it with recursive search.
+
+## Day 20
+
+- LOL, this was so easy that I forgot to add notes for it.
 
 ## Day 19
 
