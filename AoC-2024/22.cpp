@@ -4,13 +4,6 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <clocale>
-#include <iostream>
-#include <map>
-#include <set>
-#include <string>
-#include <tuple>
 
 ll ans = 0;
 ll v[1600];
@@ -19,6 +12,7 @@ map<int, int> dp;
 map<tuple<int, int, int, int>, int> dp_cost;
 
 const int MOD = 16777216;
+const int N_STEP = 2000;
 
 void read_input() {
     string line;
@@ -38,29 +32,26 @@ ll get_val(const ll &val) {
 }
 
 void solve() {
-    // TODO(Duck): duck
 #if PART1
     for (int i = 0; i < cnt; i++) {
         ll val = v[i];
-        for (int j = 0; j < 2000; j++) {
-            val = get_val(val);
-        }
+        for (int j = 0; j < N_STEP; j++) val = get_val(val);
         ans += val;
     }
 #else
     for (int i = 0; i < cnt; i++) {
         set<tuple<int, int, int, int>> s;
         ll val = v[i];
-        int arr[2000 + 1];
-        int changes[2000 + 1];
+        int arr[N_STEP + 1];
+        int changes[N_STEP + 1];
         arr[0] = val % 10;
 
-        for (int j = 0; j < 2000 + 1; j++) {
+        for (int j = 0; j < N_STEP; j++) {
             val = get_val(val);
             arr[j + 1] = val % 10;
         }
-        for (int j = 2000; j > 0; j--) changes[j] = arr[j] - arr[j - 1];
-        for (int j = 4; j < 2000 + 1; j++) {
+        for (int j = N_STEP; j > 0; j--) changes[j] = arr[j] - arr[j - 1];
+        for (int j = 4; j < N_STEP; j++) {
             auto key = make_tuple(changes[j - 3], changes[j - 2],
                                   changes[j - 1], changes[j]);
             if (s.count(key)) continue;
@@ -69,15 +60,7 @@ void solve() {
         }
     }
 
-    // for (auto [key, val] : dp_cost) {
-    //     cout << get<0>(key) << ", " << get<1>(key) << ", " << get<2>(key)
-    //          << ", " << get<3>(key) << ": " << val << endl;
-    // }
-    //
-    // LOG(dp_cost[make_tuple(-2, 1, -1, 3)]);
-    ans = 0;
     for (auto [key, val] : dp_cost) ans = max(ans, (ll)val);
-
 #endif  // PART1
 }
 

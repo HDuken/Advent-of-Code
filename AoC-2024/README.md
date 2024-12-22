@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-42/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-44/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 22
+
+- Too easy for day 22
+- Implement the function to get next value with bit shifting, store the results.
 
 ## Day 21
 
