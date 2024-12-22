@@ -27,6 +27,8 @@ using namespace std;  // NOLINT
 const int ALPHABET = 26;
 typedef long long ll;  // NOLINT
 typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<string> vs;
 
 #define endl '\n'
 #define all(v) v.begin(), v.end()
