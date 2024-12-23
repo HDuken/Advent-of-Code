@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-44/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-46/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 23
+
+- Pretty easy for day 23
+- Use `std::set`
 
 ## Day 22
 
