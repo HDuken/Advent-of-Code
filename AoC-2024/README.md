@@ -13,7 +13,7 @@
   - If the output of a gate is `z`, then the operation has to be `XOR`, except for the last bit, for which the operation will be `OR`
   - If the output of a gate is NOT `z` and the inputs are not x and y, then the operation CANNOT be `XOR`
   - A `XOR` gate with x, y inputs follows by a `XOR` gate, except for `x00` and `y00`
-  - A `AND` gate with x, y inputs follows by a `OR` gate, except for `x00` and `y00`
+  - A `AND` gate follows by a `OR` gate, except for `x00` and `y00`
 
 ## Day 23
 

@@ -4,12 +4,6 @@
  */
 
 #include "../pch.hpp"
-#include <algorithm>
-#include <bitset>
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
 
 const int N_BIT = 46;
 bitset<N_BIT> bs;
