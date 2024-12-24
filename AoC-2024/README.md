@@ -1,10 +1,19 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-46/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-48/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 24
+
+- Part 1 is relatively easy to implement the forward pass.
+- For part 2, I need some help from [reddit](https://www.reddit.com/r/adventofcode/comments/1hla5ql/2024_day_24_part_2_a_guide_on_the_idea_behind_the/)
+  - If the output of a gate is `z`, then the operation has to be `XOR`, except for the last bit, for which the operation will be `OR`
+  - If the output of a gate is NOT `z` and the inputs are not x and y, then the operation CANNOT be `XOR`
+  - A `XOR` gate with x, y inputs follows by a `XOR` gate, except for `x00` and `y00`
+  - A `AND` gate with x, y inputs follows by a `OR` gate, except for `x00` and `y00`
 
 ## Day 23
 
