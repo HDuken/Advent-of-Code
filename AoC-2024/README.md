@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-48/50-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-50/50-yellow">
 </div>
 
 ![aoc2024](aoc2024.png)
+
+## Day 25
+
+The end `=))`.
 
 ## Day 24
 
