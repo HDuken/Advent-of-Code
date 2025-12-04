@@ -6,6 +6,8 @@
 
 ![aoc2025](aoc2025.png)
 
+## Day 2
+
 ## Day 1
 
 - Part 1: use mod operator. If the dial position ends up at 0, increment the point.
