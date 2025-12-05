@@ -4,23 +4,21 @@
  */
 
 #include "../pch.hpp"
-#include <utility>
 
 ll ans = 0;
 stringstream ss;
 vector<pair<ll, ll>> ranges;
 
-bool is_invalid(ll x) {
-    string s = to_string(x);
+// Check if an ID is invalid
+bool is_good(string s, int n_substr) {
+    if (s.size() % n_substr != 0) return false;
 
-    // If the number has odd no. digits
-    if (s.size() % 2 != 0) return false;
+    int len_str = s.size() / n_substr;
+    for (int id_substr = 0; id_substr < n_substr; id_substr++)
+        for (int id_char = 0; id_char < len_str; id_char++)
+            if (s[id_char] != s[id_substr * len_str + id_char]) return false;
 
-    string s1 = s.substr(0, s.size() / 2);
-    string s2 = s.substr(s.size() / 2, s.size() / 2);
-    if (s1 == s2) return true;
-
-    return false;
+    return true;
 }
 
 void read_input() {
@@ -29,29 +27,32 @@ void read_input() {
     line.push_back(',');
 
     ss.str(line);
-    char c;
     ll a, b;
+    char c;
 
-    while (ss >> a >> c >> b >> c) {
-        ranges.push_back(pair<ll, ll>(a, b));
-    }
+    while (ss >> a >> c >> b >> c) ranges.push_back(pair<ll, ll>(a, b));
 }
 
 void solve() {
-    ll a, b;
     for (const auto &[a, b] : ranges) {
-        print(a, b);
         for (ll i = a; i <= b; i++) {
-            if (is_invalid(i)) ans += i;
+            string s = to_string(i);
+            for (int n_substr = 2; n_substr <= s.size(); n_substr++) {
+                if (is_good(s, n_substr)) {
+                    ans += i;
+                    break;
+                }
+#if PART1
+                break;
+#endif  // PART1
+            }
         }
     }
 }
 
 int main(int argc, char const *argv[]) {
     read_input();
-#if !PART2
     solve();
-#endif  // !PART2
     LOG(ans);
     return 0;
 }
