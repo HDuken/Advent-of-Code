@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-6/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-8/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 4
+
+- For part 2, have a do-while loop, the loop continue if there is at least one roll removed
 
 ## Day 3
 
