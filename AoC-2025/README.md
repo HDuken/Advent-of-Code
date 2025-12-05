@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-8/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-10/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 5
+
+- Use a set to store unique ranges
+- Try to combine all pairs of ranges until nothing is possible
 
 ## Day 4
 
