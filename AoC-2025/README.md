@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-2/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-4/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 2
+
+- Convert to string and check if the chars are the same in the sub-strings
 
 ## Day 1
 
