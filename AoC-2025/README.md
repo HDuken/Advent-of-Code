@@ -1,10 +1,14 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-4/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-6/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 3
+
+- Simply search for the largest digit in a suitable range: after the previous digit while still leaving enough digits for the rest
 
 ## Day 2
 
