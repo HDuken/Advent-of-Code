@@ -1,10 +1,17 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-10/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-12/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 6
+
+- Part 1: use `stringstream` to parse the input to either a 2D array or vector
+- Part 2:
+  - Need to use a 2D array of char to store the raw input
+  - Use two pointers to parse the input from right to left: the left pointer is the column index of the math operator, either '+' or '\*', the right pointer is the previous left pointer shifting to the left.
 
 ## Day 5
 
