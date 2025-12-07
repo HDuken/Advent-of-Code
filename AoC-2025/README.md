@@ -1,10 +1,17 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-12/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-14/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 7
+
+- Part 1: keep a set of indices for current beams. Whenever the beam hit a splitter, increment the result by 1.
+- Part 2: keep a 2D array for counting current possible "timelines" at each position.
+  - Without splitting, the count would equal the count of preceding cell
+  - If split, the counts of two children cell is increment by the count of the parent cell
 
 ## Day 6
 
