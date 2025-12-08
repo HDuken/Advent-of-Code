@@ -1,10 +1,21 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-14/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-16/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 8
+
+For both parts, use hash tables:
+
+- `std::map` from distance to a pair of coordinates
+- `std::set` to have a sorted set of distances to iterate
+- Represent a circuit with a `std::set` of junction box's indices
+- `std::map` from indices to current a circuit's `std::set`
+
+The rest is just adding element to set, combining two sets and update hash tables
 
 ## Day 7
 
