@@ -15,8 +15,8 @@ fi
 
 echo "Part 1:"
 g++ -DPART1=true "$1".cpp -o out -Winvalid-pch &&
-    ./out <"$1".txt && rm -f out
+    time ./out <"$1".txt && rm -f out
 
 echo "Part 2:"
 g++ -DPART2=true "$1".cpp -o out -Winvalid-pch &&
-    ./out <"$1".txt && rm -f out
+    time ./out <"$1".txt && rm -f out
