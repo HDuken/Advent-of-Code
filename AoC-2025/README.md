@@ -6,6 +6,11 @@
 
 ![aoc2025](aoc2025.png)
 
+## Day 10
+
+- Part 1: BFS, kind of
+- Part 2: ILP
+
 ## Day 8
 
 For both parts, use hash tables:
