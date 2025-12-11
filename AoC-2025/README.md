@@ -1,10 +1,19 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-20/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-22/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 11
+
+- Both parts, DFS with memoization
+- Part 2: at each node has an array of 4 values:
+  - No. paths to "out" going through both DAC and FFT
+  - No. paths to "out" going through only DAC
+  - No. paths to "out" going through only FFT
+  - No. paths to "out" NOT going through both DAC and FFT
 
 ## Day 10
 
