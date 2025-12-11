@@ -15,6 +15,11 @@
   - No. paths to "out" going through only FFT
   - No. paths to "out" NOT going through both DAC and FFT
 
+## Day 10
+
+- Part 1: BFS, kind of
+- Part 2: ILP, TODO
+
 ## Day 9
 
 - Part 2: ray casting, TODO
