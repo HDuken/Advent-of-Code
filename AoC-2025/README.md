@@ -9,6 +9,7 @@
 ## Day 9
 
 - Part 2: ray casting, TODO
+- Part 1: Brute force, try out all pairs of opposite corners
 
 ## Day 8
 
