@@ -1,10 +1,15 @@
 # Advent of Code
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-18/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-20/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 10
+
+- Part 1: BFS, kind of
+- Part 2: ILP, TODO
 
 ## Day 9
 
