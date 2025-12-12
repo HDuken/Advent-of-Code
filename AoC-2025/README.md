@@ -1,10 +1,15 @@
-# Advent of Code
+# Advent of Code 2025
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-22/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-24/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
+
+## Day 12
+
+- Simply multiply and space for each present with the no. presents to have the needed space
+- Compare that with the available space
 
 ## Day 11
 

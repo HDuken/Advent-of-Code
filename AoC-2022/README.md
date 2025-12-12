@@ -1,4 +1,4 @@
-# Advent of Code
+# Advent of Code 2022
 
 <div align="center">
     <img src="https://img.shields.io/badge/Stars%20⭐-41/50-yellow">
