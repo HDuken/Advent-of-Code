@@ -1,15 +1,20 @@
-# Advent of Code
+# Advent of Code 2025
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Stars%20⭐-22/24-yellow">
+    <img src="https://img.shields.io/badge/Stars%20⭐-24/24-yellow">
 </div>
 
 ![aoc2025](aoc2025.png)
 
+## Day 12
+
+- Simply multiply and space for each present with the no. presents to have the needed space
+- Compare that with the available space
+
 ## Day 11
 
 - Both parts, DFS with memoization
-- Part 2: at each node has an array of 4 values:
+- Part 2 can also re-use the DFS of part 1. This is faster: at each node has an array of 4 values:
   - No. paths to "out" going through both DAC and FFT
   - No. paths to "out" going through only DAC
   - No. paths to "out" going through only FFT
